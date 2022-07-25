@@ -1,0 +1,19 @@
+import { Flex, useColorMode } from '@chakra-ui/react';
+import { BiPlanet } from 'react-icons/bi';
+
+const NavLogo = () => {
+  const { colorMode } = useColorMode();
+
+  return (
+    <Flex
+      alignItems="center"
+      columnGap="4"
+      color={colorMode === 'dark' ? 'teal.300' : 'teal.500'}
+      fontSize="4xl"
+    >
+      <BiPlanet />
+    </Flex>
+  );
+};
+
+export default NavLogo;
