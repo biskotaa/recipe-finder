@@ -1,9 +1,17 @@
 import { useStore } from '../../store/store';
 import { RadioGroup, Stack, Radio } from '@chakra-ui/react';
 
-const SpeciesStatus = () => {
+const SpeciesStatus = ({
+  setIsFiltered,
+}: {
+  setIsFiltered: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const setSpecies = useStore((state) => state.setSpecies);
   const species = useStore((state) => state.speciesStatus);
+
+  if (!!species) {
+    setIsFiltered(true);
+  }
 
   return (
     <>

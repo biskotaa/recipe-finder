@@ -12,9 +12,13 @@ import SpeciesStatus from './SpeciesStatus';
 
 interface IFilteredProps {
   colorMode: string;
+  setIsFiltered: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FilterAccordion: React.FC<IFilteredProps> = ({ colorMode }) => {
+const FilterAccordion: React.FC<IFilteredProps> = ({
+  colorMode,
+  setIsFiltered,
+}) => {
   return (
     <Accordion bg={colorMode === 'dark' ? 'gray.800' : 'white'} allowMultiple>
       <AccordionItem>
@@ -27,7 +31,7 @@ const FilterAccordion: React.FC<IFilteredProps> = ({ colorMode }) => {
           </AccordionButton>
         </h2>
         <AccordionPanel pb="4">
-          <AliveStatus />
+          <AliveStatus setIsFiltered={setIsFiltered} />
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
@@ -40,7 +44,7 @@ const FilterAccordion: React.FC<IFilteredProps> = ({ colorMode }) => {
           </AccordionButton>
         </h2>
         <AccordionPanel pb="4">
-          <GenderStatus />
+          <GenderStatus setIsFiltered={setIsFiltered} />
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
@@ -53,7 +57,7 @@ const FilterAccordion: React.FC<IFilteredProps> = ({ colorMode }) => {
           </AccordionButton>
         </h2>
         <AccordionPanel pb="4">
-          <SpeciesStatus />
+          <SpeciesStatus setIsFiltered={setIsFiltered} />
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

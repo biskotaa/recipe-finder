@@ -1,27 +1,15 @@
 import { useStore } from '../store/store';
-import { useEffect } from 'react';
 import FilterAccordion from './Filter/FilterAccordion';
-import {
-  Flex,
-  Text,
-  useColorMode,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Button,
-} from '@chakra-ui/react';
-import { FaSearch } from 'react-icons/fa';
+import { Flex, Text, useColorMode, Button } from '@chakra-ui/react';
+import SearchTerm from './Filter/SearchTerm';
 
-const Banner = () => {
+const Banner = ({
+  setIsFiltered,
+}: {
+  setIsFiltered: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const { colorMode } = useColorMode();
-  const searchTerm = useStore((state) => state.searchTerm);
-  const setSearchTerm = useStore((state) => state.setSearchTerm);
   const clearAllFilters = useStore((state) => state.clearAllFilters);
-
-  useEffect(() => {
-    clearAllFilters();
-    console.log('rendered');
-  }, [clearAllFilters]);
 
   return (
     <Flex
@@ -51,28 +39,8 @@ const Banner = () => {
         Rick and Morty Adventures
       </Text>
       <Flex w={['70%', '70%', '70%', '50%']} flexDir="column">
-        <InputGroup w="100%">
-          <Input
-            size="lg"
-            bg={colorMode === 'dark' ? 'gray.800' : 'white'}
-            pl="4"
-            borderTopRadius="6"
-            borderBottomRadius="0"
-            placeholder="Search a character by name!"
-            value={searchTerm ? searchTerm : ''}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <InputRightElement
-            onClick={() => console.log('okej')}
-            cursor="pointer"
-            pr="4"
-            fontSize="xl"
-            color="teal.500"
-            h="100%"
-            children={<FaSearch />}
-          />
-        </InputGroup>
-        <FilterAccordion colorMode={colorMode} />
+        <SearchTerm setIsFiltered={setIsFiltered} />
+        <FilterAccordion setIsFiltered={setIsFiltered} colorMode={colorMode} />
         <Button
           colorScheme="teal"
           borderTopRadius="0"

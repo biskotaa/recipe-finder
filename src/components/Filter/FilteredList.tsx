@@ -1,26 +1,50 @@
+import { useStore } from '../../store/store';
 import { useState, useMemo, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { getCharacters } from '../api/charactersAPI';
-import randomArray from '../utils/randomArray';
-import { ICharacterAPI } from '../interfaces/ICharacter';
-import { Grid, GridItem, useToast, Flex, Text, Button } from '@chakra-ui/react';
-import Card from '../components/ui/Card';
-import CardSkeleton from './ui/CardSkeleton';
+import { queryClient } from '../../index';
+import { filterCharacters } from '../../api/charactersAPI';
+import randomArray from '../../utils/randomArray';
+import { ICharacterAPI } from '../../interfaces/ICharacter';
+import {
+  Grid,
+  GridItem,
+  useToast,
+  Flex,
+  Text,
+  Button,
+  UnorderedList,
+  ListItem,
+} from '@chakra-ui/react';
+import Card from '../../components/ui/Card';
+import CardSkeleton from '../ui/CardSkeleton';
 
-const CharactersList = () => {
+const FilteredList = () => {
+  const searchTerm = useStore((state) => state.searchTerm);
+  const aliveStatus = useStore((state) => state.aliveStatus);
+  const genderStatus = useStore((state) => state.genderStatus);
+  const speciesStatus = useStore((state) => state.speciesStatus);
   const [page, setPage] = useState(1);
   const {
-    data: characters,
+    data: filteredData,
     isError,
     isFetching,
     isSuccess,
     isPreviousData,
   } = useQuery<ICharacterAPI>(
-    ['characters', { page }],
-    () => getCharacters({ page }),
+    [
+      'filtered',
+      { page, searchTerm, aliveStatus, genderStatus, speciesStatus },
+    ],
+    () =>
+      filterCharacters({
+        page,
+        searchTerm,
+        aliveStatus,
+        genderStatus,
+        speciesStatus,
+      }),
     {
       keepPreviousData: true,
-      staleTime: 120000,
     }
   );
   const toast = useToast();
@@ -38,13 +62,22 @@ const CharactersList = () => {
         isClosable: true,
       });
     }
-  }, [isError]);
+
+    return () =>
+      queryClient.removeQueries(['characters'], { type: 'inactive' });
+  }, [isError, speciesStatus, genderStatus, aliveStatus, searchTerm]);
 
   return (
     <Grid minH="600px">
       {isError && (
         <Flex flexDirection="column" alignItems="center" rowGap="2">
-          <Text>There is no data at the moment, please try again later! </Text>
+          <Text>There is no data with these tags: </Text>
+          <UnorderedList>
+            {searchTerm && <ListItem>{searchTerm}</ListItem>}
+            {genderStatus && <ListItem>{genderStatus}</ListItem>}
+            {aliveStatus && <ListItem>{aliveStatus}</ListItem>}
+            {speciesStatus && <ListItem>{speciesStatus}</ListItem>}
+          </UnorderedList>
         </Flex>
       )}
       {!isFetching ? (
@@ -59,8 +92,8 @@ const CharactersList = () => {
             gap="6"
           >
             {isSuccess &&
-              characters &&
-              characters.results.map((el) => {
+              filteredData &&
+              filteredData.results.map((el) => {
                 return (
                   <GridItem key={el.id}>
                     <Card
@@ -90,17 +123,17 @@ const CharactersList = () => {
             >
               Prev
             </Button>
-            {characters && (
+            {filteredData && (
               <Text fontSize="xl" fontWeight="600">
-                {page} / {characters.info.pages} Pages
+                {page} / {filteredData.info.pages} Pages
               </Text>
             )}
             <Button
               colorScheme="teal"
               size="md"
-              disabled={isPreviousData || !characters?.info.next}
+              disabled={isPreviousData || !filteredData?.info.next}
               onClick={() => {
-                if (!isPreviousData || characters?.info.next) {
+                if (!isPreviousData || filteredData?.info.next) {
                   setPage((t) => t + 1);
                 }
               }}
@@ -133,4 +166,4 @@ const CharactersList = () => {
   );
 };
 
-export default CharactersList;
+export default FilteredList;

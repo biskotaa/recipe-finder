@@ -1,9 +1,18 @@
 import { useStore } from '../../store/store';
 import { RadioGroup, Stack, Radio } from '@chakra-ui/react';
 
-const GenderStatus = () => {
+const GenderStatus = ({
+  setIsFiltered,
+}: {
+  setIsFiltered: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const setGender = useStore((state) => state.setGender);
   const gender = useStore((state) => state.genderStatus);
+
+  if (!!gender) {
+    setIsFiltered(true);
+  }
+
   return (
     <>
       <RadioGroup onChange={setGender} value={gender ? gender : undefined}>
