@@ -7,18 +7,10 @@ import {
 } from '@chakra-ui/react';
 import { FaSearch } from 'react-icons/fa';
 
-const SearchTerm = ({
-  setIsFiltered,
-}: {
-  setIsFiltered: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const SearchTerm = () => {
   const { colorMode } = useColorMode();
   const searchTerm = useStore((state) => state.searchTerm);
   const setSearchTerm = useStore((state) => state.setSearchTerm);
-
-  if (!!searchTerm) {
-    setIsFiltered(true);
-  }
 
   return (
     <InputGroup w="100%">

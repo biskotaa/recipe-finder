@@ -3,11 +3,7 @@ import FilterAccordion from './Filter/FilterAccordion';
 import { Flex, Text, useColorMode, Button } from '@chakra-ui/react';
 import SearchTerm from './Filter/SearchTerm';
 
-const Banner = ({
-  setIsFiltered,
-}: {
-  setIsFiltered: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const Banner = () => {
   const { colorMode } = useColorMode();
   const clearAllFilters = useStore((state) => state.clearAllFilters);
 
@@ -39,8 +35,8 @@ const Banner = ({
         Rick and Morty Adventures
       </Text>
       <Flex w={['70%', '70%', '70%', '50%']} flexDir="column">
-        <SearchTerm setIsFiltered={setIsFiltered} />
-        <FilterAccordion setIsFiltered={setIsFiltered} colorMode={colorMode} />
+        <SearchTerm />
+        <FilterAccordion colorMode={colorMode} />
         <Button
           colorScheme="teal"
           borderTopRadius="0"

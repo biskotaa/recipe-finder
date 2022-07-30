@@ -19,6 +19,7 @@ export interface ICharacter {
   url?: string;
   origin: Origin;
   location: Location;
+  gender?: string;
 }
 
 enum Status {
