@@ -8,7 +8,7 @@ export const getEpisodes = async ({ page }: { page: number }) => {
   return response.data;
 };
 
-export const getEpisode = async (id: string) => {
+export const getEpisode = async (id: number) => {
   const response = await axios.get(`${PATH}/${id}`);
 
   return response.data;

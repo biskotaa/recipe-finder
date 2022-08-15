@@ -12,6 +12,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Episodes = lazy(() => import('./pages/Episodes'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const CharacterPage = lazy(() => import('./pages/CharacterPage'));
+const Episode = lazy(() => import('./pages/Episode'));
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
             <Route path="locations" element={<Locations />} />
             <Route path="episodes" element={<Episodes />} />
+            <Route path="episodes/:id" element={<Episode />} />
             <Route path="characters/:id" element={<CharacterPage />} />
           </Route>
         </Routes>
