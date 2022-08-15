@@ -34,7 +34,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ url }) => {
       {isSuccess && data && (
         <Flex
           bg={colorMode === 'dark' ? 'gray.600' : 'gray.200'}
-          alignItems="flex-start"
+          alignItems={['center', 'center', 'center', 'center', 'flex-start']}
           justifyContent={['center', 'center', 'center', 'flex-start']}
           flexDirection={['column', 'column', 'column', 'column', 'row']}
           borderRadius="6"
