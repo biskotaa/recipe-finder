@@ -1,5 +1,56 @@
+# Getting Started with Rick and Morty App
+
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
+
+## Project Description
+
+This app is a small wiki app about the Rick and Morty series, this app allows users to see all characters, locations, and episodes.
+
+This App also allows users to filter through character list by: name, alive status, and gender.
+
+[Live Demo](https://rickandmorty-react-query.netlify.app/)
+
+## Frameworks and Libraries used in this Project
+
+- [React](https://reactjs.org/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [React Query](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
+- [Chackra UI](https://chakra-ui.com/)
+
+## App Routes
+
+1. Home Page (Contains all characters)
+   - Characters/:id Page (Page for each character)
+2. Locations Page (Contains all locations)
+   - Locations/:id Page (Page for each location and also displays the residents of that location)
+3. Episodes Page (Contains all episodes)
+   - Episodes/:id Page (Page for each episode and also displays information and characters that appear in that episode)
+
+## Features
+
+- [x] Filter through all characters by their name
+- [x] Filter through all characters by their gender
+- [x] Filter through all characters by their alive status
+- [x] Filter through all characters by species
+- [x] Caching data client side
+- [x] Responsive UI
+- [x] Dark Mode
+
+## Screenshots
+
+- DarK Mode
+  ![Alt text](https://i.imgur.com/X4Wwzui.mp4 'Dark Mode')
+
+## Install App steps
+
+> npm i
+
+then ->
+
+> npm start
+
+## Screenshots
 
 ## Available Scripts
 
