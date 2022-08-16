@@ -41,8 +41,8 @@ This App also allows users to filter through character list by: name, alive stat
 
 - DarK Mode
 
-  ![Alt text](https://i.imgur.com/X4Wwzui.mp4 'Dark Mode')
-  ![Alt text](https://i.imgur.com/7RGNh17.mp4 'okej')
+https://i.imgur.com/X4Wwzui.mp4
+https://i.imgur.com/7RGNh17.mp4
 
 ## Install App steps
 
