@@ -5,11 +5,11 @@ import { Flex, useColorMode } from '@chakra-ui/react';
 import Card from './ui/Card';
 import Loader from './ui/Loader';
 
-type EpisodeCardProps = {
+type CharacterCardProps = {
   url: string;
 };
 
-const EpisodeCard: React.FC<EpisodeCardProps> = ({ url }) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({ url }) => {
   const id = url.split('/');
   const { data, isFetching, isSuccess } = useQuery<ICharacter>(
     ['episodeCard', Number(id[id.length - 1])],
@@ -59,4 +59,4 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ url }) => {
   );
 };
 
-export default EpisodeCard;
+export default CharacterCard;

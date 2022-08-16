@@ -7,12 +7,13 @@ import Layout from './components/Layout/Layout';
 import Loader from './components/ui/Loader';
 
 //Pages
-const Locations = lazy(() => import('./pages/Locations'));
 const Home = lazy(() => import('./pages/Home'));
-const Episodes = lazy(() => import('./pages/Episodes'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const CharacterPage = lazy(() => import('./pages/CharacterPage'));
+const Episodes = lazy(() => import('./pages/Episodes'));
 const Episode = lazy(() => import('./pages/Episode'));
+const Locations = lazy(() => import('./pages/Locations'));
+const Location = lazy(() => import('./pages/Location'));
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="locations" element={<Locations />} />
+            <Route path="locations/:id" element={<Location />} />
             <Route path="episodes" element={<Episodes />} />
             <Route path="episodes/:id" element={<Episode />} />
             <Route path="characters/:id" element={<CharacterPage />} />
