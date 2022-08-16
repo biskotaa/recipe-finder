@@ -40,73 +40,47 @@ This App also allows users to filter through character list by: name, alive stat
 ## Screenshots
 
 - DarK Mode
+![DarkMode](https://user-images.githubusercontent.com/81906261/184973782-9fdbb3ec-f592-47ff-a3b3-9febe7378457.png)
 
-https://i.imgur.com/X4Wwzui.mp4
-https://i.imgur.com/7RGNh17.mp4
+- Light Mode
+![Light Mode](https://user-images.githubusercontent.com/81906261/184973813-99c0f798-da81-4078-854f-2fb2dc69346f.png)
+
+- Filter List
+![Filter Feature](https://user-images.githubusercontent.com/81906261/184973839-f564b0c3-165e-4786-8404-f1b77b6cac35.png)
+![Filtering List](https://user-images.githubusercontent.com/81906261/184973917-3eda629e-869b-420d-9ca1-fcb0d412b41c.png)
+![Filtering List 2](https://user-images.githubusercontent.com/81906261/184973933-7a063253-b33a-4777-b821-09d546ffd4ee.png)
+
+
+- Episodes List Page
+![All Episodes](https://user-images.githubusercontent.com/81906261/184973965-be22b6f4-2c42-4baf-bd05-ed53ad5a3243.png)
+
+- Each Episode Page 
+![Episode Page](https://user-images.githubusercontent.com/81906261/184974052-f6659a85-aa7d-4d2d-8fd4-337f932e53d9.png)
+
+- Location List Page
+![All Locations](https://user-images.githubusercontent.com/81906261/184974193-e6d0946d-057e-4d7c-9807-497aa9d67e32.png)
+
+- Each Location Page
+![Location Page](https://user-images.githubusercontent.com/81906261/184974250-78a59bc0-90b5-48ba-ad69-11f2f6b835fb.png)
+
+- Each Character Page
+![Character Page](https://user-images.githubusercontent.com/81906261/184974099-1d710d9f-8d52-4062-a625-51d59c65c38c.png)
+
+- Responsive Layout
+![Responsive-1](https://user-images.githubusercontent.com/81906261/184974861-bba79fd2-8170-4540-b975-4af500f3391d.png)
+![Responsive-2](https://user-images.githubusercontent.com/81906261/184974869-9897057e-3c2d-45cf-93b1-7b868ab4beca.png)
+![Responsive-3](https://user-images.githubusercontent.com/81906261/184974883-b2b5a2e8-7353-458d-8f0f-5ddcce5a9510.png)
+![Responsive-4](https://user-images.githubusercontent.com/81906261/184974901-674fbc3f-f52a-4259-b848-80c726407d20.png)
+
 
 ## Install App steps
 
-> npm i
+```
+npm i
+npm start
+```
 
-then ->
+## API Documentation
 
-> npm start
+You can learn more about each end point in the [Rick and Morty API Documentation](https://rickandmortyapi.com/documentation/)
 
-## Screenshots
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br /> Open
-[http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br /> See the section
-about
-[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br /> It correctly bundles
-React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br /> Your app is
-ready to be deployed!
-
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
-
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
