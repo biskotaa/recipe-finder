@@ -40,6 +40,7 @@ This App also allows users to filter through character list by: name, alive stat
 ## Screenshots
 
 - DarK Mode
+
   ![Alt text](https://i.imgur.com/X4Wwzui.mp4 'Dark Mode')
 
 ## Install App steps
