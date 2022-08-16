@@ -59,7 +59,7 @@ const Episodes = () => {
         textAlign="center"
         my="6"
       >
-        Rick and Morty Episodes
+        Rick and Morty All Episodes
       </Text>
       {isFetching && <Loader />}
       <>
