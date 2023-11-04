@@ -1,15 +1,13 @@
-import { useStore } from '../store/store';
-import FilterAccordion from './Filter/FilterAccordion';
-import { Flex, Text, useColorMode, Button } from '@chakra-ui/react';
+import { Flex, Text, useColorMode } from '@chakra-ui/react';
 import SearchTerm from './Filter/SearchTerm';
+import Image from '../assets/bannerBG.jpg';
 
 const Banner = () => {
   const { colorMode } = useColorMode();
-  const clearAllFilters = useStore((state) => state.clearAllFilters);
 
   return (
     <Flex
-      backgroundImage="url('https://i.imgur.com/eudxAN5.jpg')"
+      backgroundImage={ Image }
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
@@ -23,7 +21,7 @@ const Banner = () => {
       pb="4"
     >
       <Text
-        fontSize={['5xl', '6xl', '8xl']}
+        fontSize={['6xl']}
         fontWeight="extrabold"
         textAlign="center"
         bg={colorMode === 'dark' ? 'gray.800' : 'white'}
@@ -32,19 +30,10 @@ const Banner = () => {
           WebkitTextStroke: colorMode === 'light' ? '3px #1A202C' : '3px white',
         }}
       >
-        Rick and Morty Adventures
+        Recipe Search Engine
       </Text>
       <Flex w={['70%', '70%', '70%', '50%']} flexDir="column">
         <SearchTerm />
-        <FilterAccordion colorMode={colorMode} />
-        <Button
-          colorScheme="teal"
-          borderTopRadius="0"
-          variant="solid"
-          onClick={clearAllFilters}
-        >
-          Clear All Filters
-        </Button>
       </Flex>
     </Flex>
   );

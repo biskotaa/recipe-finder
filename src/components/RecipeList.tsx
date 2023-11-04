@@ -1,31 +1,28 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { getCharacters } from '../api/charactersAPI';
+import { getRecipe, getRecipes } from '../api/recipeAPI';
 import randomArray from '../utils/randomArray';
-import { ICharacterAPI } from '../interfaces/ICharacter';
+import { IRecipeResponse } from '../interfaces/IRecipe';
 import { Grid, GridItem, useToast, Flex, Text, Button } from '@chakra-ui/react';
-import Card from '../components/ui/Card';
+import Card from './ui/Card';
 import CardSkeleton from './ui/CardSkeleton';
 
-const CharactersList = () => {
-  const [page, setPage] = useState(1);
+const RecipeList = () => {
   const {
-    data: characters,
+    data: recipes,
     isError,
     isFetching,
     isSuccess,
-    isPreviousData,
-  } = useQuery<ICharacterAPI>(
-    ['characters', { page }],
-    () => getCharacters({ page }),
+  } = useQuery<IRecipeResponse[]>(
+    ['recipes'],
+    () => getRecipes(),
     {
       keepPreviousData: true,
       staleTime: 120000,
     }
   );
   const toast = useToast();
-  const limit = 20;
-
+  const limit = 5;
   const rndmArray = useMemo(() => randomArray(limit), [limit]);
 
   useEffect(() => {
@@ -59,55 +56,20 @@ const CharactersList = () => {
             gap="6"
           >
             {isSuccess &&
-              characters &&
-              characters.results.map((el) => {
+              recipes &&
+              recipes.map((el) => {
                 return (
-                  <GridItem key={el.id}>
+                  <GridItem key={el._id}>
                     <Card
-                      id={el.id}
-                      image={el.image}
-                      location={el.location}
-                      origin={el.origin}
+                      id={el._id}
                       name={el.name}
-                      species={el.species}
-                      status={el.status}
+                      ingredients={el.ingredients}
+                      instructions={el.instructions}
                     />
                   </GridItem>
                 );
               })}
           </Grid>
-          <Flex
-            justifyContent="center"
-            my="4"
-            alignItems="center"
-            columnGap="4"
-          >
-            <Button
-              colorScheme="teal"
-              size="md"
-              disabled={page === 1}
-              onClick={() => setPage((t) => Math.max(t - 1, 0))}
-            >
-              Prev
-            </Button>
-            {characters && (
-              <Text fontSize="xl" fontWeight="600">
-                {page} / {characters.info.pages} Pages
-              </Text>
-            )}
-            <Button
-              colorScheme="teal"
-              size="md"
-              disabled={isPreviousData || !characters?.info.next}
-              onClick={() => {
-                if (!isPreviousData || characters?.info.next) {
-                  setPage((t) => t + 1);
-                }
-              }}
-            >
-              Next
-            </Button>
-          </Flex>
         </>
       ) : (
         <Grid
@@ -133,4 +95,4 @@ const CharactersList = () => {
   );
 };
 
-export default CharactersList;
+export default RecipeList;

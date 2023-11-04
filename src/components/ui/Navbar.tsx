@@ -6,12 +6,9 @@ import {
   useColorMode,
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
   IconButton,
 } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa';
-import { BiRocket, BiCameraMovie } from 'react-icons/bi';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import NavLogo from './NavLogo';
 const Navbar = () => {
@@ -42,43 +39,10 @@ const Navbar = () => {
             icon={<FaBars />}
             variant="solid"
           />
-          <MenuList>
-            <Link to="locations">
-              <MenuItem
-                fontSize="lg"
-                color={colorMode === 'dark' ? 'teal.300' : 'teal.500'}
-                icon={<BiRocket style={{ fontSize: '20px' }} />}
-              >
-                Locations
-              </MenuItem>
-            </Link>
-            <Link to="episodes">
-              <MenuItem
-                fontSize="lg"
-                color={colorMode === 'dark' ? 'teal.300' : 'teal.500'}
-                icon={<BiCameraMovie style={{ fontSize: '20px' }} />}
-              >
-                Episodes
-              </MenuItem>
-            </Link>
-          </MenuList>
         </Menu>
       </Flex>
       <Flex alignItems="center">
-        <Flex
-          display={['none', 'none', 'flex']}
-          mx="1rem"
-          gap="1rem"
-          fontWeight="600"
-        >
-          <Link to="locations">
-            <span className="links">Locations</span>
-          </Link>
-          <Link to="episodes">
-            <span className="links">Episodes</span>
-          </Link>
-        </Flex>
-        <ColorModeSwitcher variant="solid" />
+        <ColorModeSwitcher variant="solid"/>
       </Flex>
     </Flex>
   );

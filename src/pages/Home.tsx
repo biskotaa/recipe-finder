@@ -1,11 +1,11 @@
 import Banner from '../components/Banner';
-import CharactersContainer from '../components/CharactersContainer';
+import RecipeContainer from '../components/RecipesContainer';
 
 const Home = () => {
   return (
     <>
       <Banner />
-      <CharactersContainer />
+      <RecipeContainer />
     </>
   );
 };

@@ -18,9 +18,8 @@ const SearchTerm = () => {
         size="lg"
         bg={colorMode === 'dark' ? 'gray.800' : 'white'}
         pl="4"
-        borderTopRadius="6"
-        borderBottomRadius="0"
-        placeholder="Search a character by name!"
+        borderRadius="6"
+        placeholder="Search a recipe by name!"
         value={searchTerm ? searchTerm : ''}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
